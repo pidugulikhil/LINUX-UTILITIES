@@ -1,11 +1,10 @@
 <p align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?center=true&multiline=true&lines=⚡+WELCOME+TO+LINUX-UTILITIES+⚡;🚀 +Supercharge+Your+Linux+Like+Never+Before!+🐧;🔥+Make+Your+Terminal+FEEL+ALIVE!+🔥&center=true&speed=40&duration=2000" />
+  <img src="https://readme-typing-svg.herokuapp.com?center=true&multiline=true&lines=⚡+WELCOME+TO+LINUX-UTILITIES+⚡;🚀 +Supercharge+Your+Linux+Like+Never+Before!+🐧;🔥+Make+Your+Terminal+FEEL+ALIVE!+🔥&center=true&speed=20&duration=2000" />
 </p>
 
 <h1 align="center">🧰 LINUX-UTILITIES</h1>
 
 <p align="center">
-  <i>Created with ❤️ by Team Likhil & Co</i> <br>
   <strong>Your Ultimate Terminal Enhancement Toolkit for Linux!</strong>
 </p>
 
