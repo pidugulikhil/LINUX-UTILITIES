@@ -1,6 +1,7 @@
 <p align="center">
   <img src="https://readme-typing-svg.herokuapp.com?center=true&multiline=true&duration=1200&speed=10&lines=⚡+WELCOME+TO+LINUX-UTILITIES+⚡;🔥+Supercharge+Your+Linux+Terminal!+🔥;🐧+Built+for+the+Power+Users!" />
 </p>
+<br>
 
 <h1 align="center">🧰 LINUX-UTILITIES</h1>
 
