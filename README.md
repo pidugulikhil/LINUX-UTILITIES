@@ -1,10 +1,11 @@
 <p align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?center=true&multiline=true&lines=⚡+WELCOME+TO+LINUX-UTILITIES+⚡;🚀 +Supercharge+Your+Linux+Like+Never+Before!+🐧;🔥+Make+Your+Terminal+FEEL+ALIVE!+🔥&center=true&speed=20&duration=2000" />
+  <img src="https://readme-typing-svg.herokuapp.com?center=true&multiline=true&duration=1200&speed=10&lines=⚡+WELCOME+TO+LINUX-UTILITIES+⚡;🔥+Supercharge+Your+Linux+Terminal!+🔥;🐧+Built+for+the+Power+Users!" />
 </p>
 
 <h1 align="center">🧰 LINUX-UTILITIES</h1>
 
 <p align="center">
+  <i>Created with ❤️ by Team Likhil & Co</i><br>
   <strong>Your Ultimate Terminal Enhancement Toolkit for Linux!</strong>
 </p>
 
@@ -38,7 +39,7 @@
 ---
 
 <p align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?lines=🖥️+Touch%2C+Tweak%2C+Takeover+Your+Linux!;🔐+Encrypt+Smartly+%7C+Decrypt+Precisely;⚙️+Manage+Permissions+Like+a+Boss;🌈+Terminal+UI+Never+Felt+This+Good!" />
+  <img src="https://readme-typing-svg.herokuapp.com?center=true&multiline=true&duration=1800&speed=25&lines=🖥️+Touch%2C+Tweak%2C+Takeover+Your+Linux!;🔐+Encrypt+Smartly+%7C+Decrypt+Precisely;⚙️+Manage+Permissions+Like+a+Boss;🌈+Terminal+UI+Never+Felt+This+Good!" />
 </p>
 
 ---
