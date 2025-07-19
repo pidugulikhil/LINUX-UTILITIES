@@ -22,7 +22,7 @@
 
 ## 🚀 Overview
 
-Welcome to **LINUX-UTILITIES** — your go-to toolkit for supercharging your Linux system. Whether you're managing permissions like a pro, encrypting sensitive data, or adjusting brightness with finesse, we've got you covered.
+WWelcome to **LINUX-UTILITIES** — your go-to toolkit for supercharging your Linux system. Whether you're managing permissions like a pro, encrypting sensitive data, or adjusting brightness with finesse, we've got you covered.
 
 ### 🔧 Projects Inside:
 
