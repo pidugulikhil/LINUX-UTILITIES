@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?center=true&multiline=true&duration=1200&speed=10&lines=⚡+WELCOME+TO+LINUX-UTILITIES+⚡;🔥+Supercharge+Your+Linux+Terminal!+🔥;🐧+Built+for+the+Power+Users!" />
+  <img height="45px" src="https://readme-typing-svg.herokuapp.com?center=true&multiline=true&duration=1200&speed=10&lines=⚡+WELCOME+TO+LINUX-UTILITIES+⚡;🔥+Supercharge+Your+Linux+Terminal!+🔥;🐧+Built+for+the+Power+Users!" />
 </p>
 <br>
 
