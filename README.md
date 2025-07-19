@@ -21,9 +21,9 @@
 
 > **A blazing-fast, no-bloat, terminal-based Swiss Army knife for your Linux desktop.**
 
-🎯 Built for **power-users**, **tweakers**, **tinkerers**, and **terminal nerds** who want their Linux system to feel **supercharged**!
+🎯 Built for **sudo users**, **linux users**, **explorers**, and **terminal sages** who want their Linux system to feel **supercharged**!
 
-🔧 This is **not just a bunch of scripts**. This is a **movement**. A toolbox. A **Linux life enhancer**.
+🔧 This is **not just a bunch of scripts**. This is a **HUB OF LINUX-UTILITIES**. A toolbox. A **Linux life enhancer**.
 
 ---
 
@@ -46,9 +46,8 @@
 ## 🌀 Why LINUX-UTILITIES?
 
 - No Python. No Java. No Bloat. Just **pure Bash power** 💣  
-- Looks like a GUI. Works like a beast. 🐅  
+- Looks like a CLI/GUI. Works like a beast. 🐅  
 - 100% portable. Copy-paste. Run anywhere. 💾  
-- Created for **power + aesthetic** lovers 🖤  
 - Turns your boring terminal into a **magic command center** 🧙
 
 ---
