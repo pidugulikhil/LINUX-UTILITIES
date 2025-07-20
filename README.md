@@ -2,7 +2,7 @@
   <img height="60px" src="https://readme-typing-svg.herokuapp.com?center=true&multiline=true&duration=1000&speed=10&lines=WELCOME+TO+LINUX-UTILITIES />
 </p>
 
-<h1 align="center">🧰 LINUX-UTILITIES</h1>
+<h1 align="center" style="font-size:60px;">🧰 LINUX-UTILITIES</h1>
 
 <p align="center">
   <strong>Your Ultimate Terminal Enhancement Toolkit for Linux!</strong>
