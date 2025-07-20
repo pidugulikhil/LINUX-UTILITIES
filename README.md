@@ -1,58 +1,28 @@
 <p align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?center=true&multiline=true&duration=1200&speed=10&lines=🖥️+LINUX%20UTILITIES%20REPOSITORY!" />
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&center=true&width=600&lines=🧰+LINUX+UTILITIES+REPO+|+TERMINAL+TOOLBOX" alt="Typing Animation" />
 </p>
 
-
-<h1 align="center" style="font-size:60px;">🧰 LINUX-UTILITIES</h1>
-
-<p align="center">
-  <strong>Your Ultimate Terminal Enhancement Toolkit for Linux!</strong>
-</p>
+<h1 align="center">🧰 LINUX‑UTILITIES</h1>
+<p align="center"><em>Your Ultimate Pure‑Bash Toolkit to Supercharge the Linux Terminal</em></p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Pure%20Bash-100%25-green?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/No%20Dependencies-Zero-brightgreen?style=for-the-badge" />
+  <img src="https://img.shields.io/github/issues/likhil-pidugu/LINUX-UTILITIES?style=for-the-badge" alt="Issues Badge" />
+  <img src="https://img.shields.io/github/stars/likhil-pidugu/LINUX-UTILITIES?style=for-the-badge" alt="Stars Badge" />
+  <img src="https://img.shields.io/github/forks/likhil-pidugu/LINUX-UTILITIES?style=for-the-badge" alt="Forks Badge" />
+  <img src="https://img.shields.io/github/last-commit/likhil-pidugu/LINUX-UTILITIES?style=for-the-badge" alt="Last Commit Badge" />
+  <img src="https://komarev.com/ghpvc/?username=likhil-pidugu&repo=LINUX-UTILITIES&style=for-the-badge" alt="Repo Views" />
 </p>
 
 ---
 
-## ⚡ What Is LINUX-UTILITIES?
-
-> **A blazing-fast, no-bloat, terminal-based Swiss Army knife for your Linux desktop.**
-
-🎯 Built for **sudo users**, **linux users**, **explorers**, and **terminal sages** who want their Linux system to feel **MORE CONTROL**!
-
-🔧 This is **not just a bunch of scripts**. This is a **HUB OF LINUX-UTILITIES**. A toolbox. A **DONT USE LINUX, BE LINUX**
+## 🎯 What It Is
+A blazing‑fast, pure‑Bash toolbox packed with terminal‑based utilities: from file crypto, GUI-looking widgets, toast‑style notifications, to human‑friendly permission editors and more.
 
 ---
 
-## 🛠️ Getting Started
+## 🚀 Quick Start
 
 ```bash
-git clone https://github.com/likhil-pidugu/LINUX-UTILITIES.git
+git clone git@github.com:likhil-pidugu/LINUX-UTILITIES.git
 cd LINUX-UTILITIES
-clear
-figlet -f smslant "CHOOSE UTILITY"
-echo
-echo
-ls
-## "Choose your Preferred UTILITIES"
-```
----
-
-## 💥 What You'll Experience:
-
-✅ Fully interactive **CLI interfaces** with color, animation & branding  
-✅ 🔐 Custom encryption & decryption layers (military-grade meets terminal swag)  
-✅ 🌞 GUI-enhanced terminal widgets for **real-time desktop control**  
-✅ 🧠 Smart file permission editing with **human-readable inputs**  
-✅ 💬 Real-time feedback, logs, toast-like messages, and more...
-
----
-
-## 🌀 Why LINUX-UTILITIES?
-
-- No Python. No Java. No Bloat. Just **pure Bash power** 💣  
-- Looks like a CLI/GUI. Works like a beast. 🐅  
-- 100% portable. Copy-paste. Run anywhere. 💾  
-- Turns your boring terminal into a **MORE CONTROLLABLE MACHINE** 🧙
+./setup.sh   # or run a chosen utility
