@@ -1,5 +1,5 @@
 <p align="center">
-  <img height="60px" src="https://readme-typing-svg.herokuapp.com?center=true&multiline=true&duration=1000&speed=10&lines=⚡+WELCOME+TO+LINUX-UTILITIES+⚡;🔥+SUPERCHARGE+YOUR+LINUX+TERMINAL!+🔥;🐧+BUILT+FOR+THE+POWERFUL+USERS!" />
+  <img height="60px" src="https://readme-typing-svg.herokuapp.com?center=true&multiline=true&duration=1000&speed=10&lines=WELCOME+TO+LINUX-UTILITIES />
 </p>
 
 <h1 align="center">🧰 LINUX-UTILITIES</h1>
@@ -11,8 +11,6 @@
 <p align="center">
   <img src="https://img.shields.io/badge/Pure%20Bash-100%25-green?style=for-the-badge" />
   <img src="https://img.shields.io/badge/No%20Dependencies-Zero-brightgreen?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/Terminal%20UI-🔥%20Animated%20CLI%20Magic!-ff69b4?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/Platform-Linux-yellow?style=for-the-badge" />
 </p>
 
 ---
@@ -24,6 +22,18 @@
 🎯 Built for **sudo users**, **linux users**, **explorers**, and **terminal sages** who want their Linux system to feel **MORE CONTROL**!
 
 🔧 This is **not just a bunch of scripts**. This is a **HUB OF LINUX-UTILITIES**. A toolbox. A **DONT USE LINUX, BE LINUX**
+---
+## 🛠️ Getting Started
+
+```bash
+git clone https://github.com/likhil-pidugu/LINUX-UTILITIES.git
+cd LINUX-UTILITIES
+clear
+figlet -f smslant "CHOOSE UTILITY"
+echo
+echo
+ls
+## "Choose your Preferred UTILITIES"
 
 ---
 
@@ -52,14 +62,3 @@
 
 ---
 
-## 🛠️ Getting Started
-
-```bash
-git clone https://github.com/likhil-pidugu/LINUX-UTILITIES.git
-cd LINUX-UTILITIES
-clear
-figlet -f smslant "CHOOSE UTILITY"
-echo
-echo
-ls
-## "Choose your Preferred UTILITIES"
