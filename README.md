@@ -1,6 +1,7 @@
 <p align="center">
-  <img height="60px" src="https://readme-typing-svg.herokuapp.com?center=true&multiline=true&duration=1000&speed=10&lines=WELCOME+TO+LINUX-UTILITIES />
+  <img src="https://readme-typing-svg.herokuapp.com?center=true&multiline=true&duration=1200&speed=10&lines=🖥️+LINUX%20UTILITIES%20REPOSITORY!" />
 </p>
+
 
 <h1 align="center" style="font-size:60px;">🧰 LINUX-UTILITIES</h1>
 
@@ -46,12 +47,6 @@ ls
 ✅ 🌞 GUI-enhanced terminal widgets for **real-time desktop control**  
 ✅ 🧠 Smart file permission editing with **human-readable inputs**  
 ✅ 💬 Real-time feedback, logs, toast-like messages, and more...
-
----
-
-<p align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?center=true&multiline=true&duration=1200&speed=10&lines=🖥️+LINUX%2C+FULL+CONTROL%2C+SMART+WORK!;🔐+SIMPLE+TO+USE++%7C+POWERFULL;⚙️+Manage+Permissions+Like+a+Boss;🌈+Terminal+UI+Never+Felt+This+Good!" />
-</p>
 
 ---
 
