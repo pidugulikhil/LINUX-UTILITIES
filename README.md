@@ -22,7 +22,9 @@
 🎯 Built for **sudo users**, **linux users**, **explorers**, and **terminal sages** who want their Linux system to feel **MORE CONTROL**!
 
 🔧 This is **not just a bunch of scripts**. This is a **HUB OF LINUX-UTILITIES**. A toolbox. A **DONT USE LINUX, BE LINUX**
+
 ---
+
 ## 🛠️ Getting Started
 
 ```bash
@@ -34,7 +36,7 @@ echo
 echo
 ls
 ## "Choose your Preferred UTILITIES"
-
+```
 ---
 
 ## 💥 What You'll Experience:
@@ -58,7 +60,4 @@ ls
 - No Python. No Java. No Bloat. Just **pure Bash power** 💣  
 - Looks like a CLI/GUI. Works like a beast. 🐅  
 - 100% portable. Copy-paste. Run anywhere. 💾  
-- Turns your boring terminal into a **magic command center** 🧙
-
----
-
+- Turns your boring terminal into a **MORE CONTROLLABLE MACHINE** 🧙
