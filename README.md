@@ -45,16 +45,15 @@
 
 ## 🎯 **Key Features**
 
-<div align="center" style="size:30px">
+<div align="center">
   
 ```bash
-M""MMMMMMMM M""M M"""""""`YM M""MMMMM""M M""MMMM""M          M""MMMMM""M M""""""""M M""M M""MMMMMMMM M""M M""""""""M M""M MM""""""""`M MP""""""`MM 
-M  MMMMMMMM M  M M  mmmm.  M M  MMMMM  M M  `MM'  M          M  MMMMM  M Mmmm  mmmM M  M M  MMMMMMMM M  M Mmmm  mmmM M  M MM  mmmmmmmM M  mmmmm..M 
-M  MMMMMMMM M  M M  MMMMM  M M  MMMMM  M MM.    .MM          M  MMMMM  M MMMM  MMMM M  M M  MMMMMMMM M  M MMMM  MMMM M  M M`      MMMM M.      `YM 
-M  MMMMMMMM M  M M  MMMMM  M M  MMMMM  M M  .mm.  M 88888888 M  MMMMM  M MMMM  MMMM M  M M  MMMMMMMM M  M MMMM  MMMM M  M MM  MMMMMMMM MMMMMMM.  M 
-M  MMMMMMMM M  M M  MMMMM  M M  `MMM'  M M  MMMM  M          M  `MMM'  M MMMM  MMMM M  M M  MMMMMMMM M  M MMMM  MMMM M  M MM  MMMMMMMM M. .MMM'  M 
-M         M M  M M  MMMMM  M Mb       dM M  MMMM  M          Mb       dM MMMM  MMMM M  M M         M M  M MMMM  MMMM M  M MM        .M Mb.     .dM 
-MMMMMMMMMMM MMMM MMMMMMMMMMM MMMMMMMMMMM MMMMMMMMMM          MMMMMMMMMMM MMMMMMMMMM MMMM MMMMMMMMMMM MMMM MMMMMMMMMM MMMM MMMMMMMMMMMM MMMMMMMMMMM 
+dP        dP 888888ba  dP     dP dP    dP          dP     dP d888888P dP dP        dP d888888P dP  88888888b .d88888b  
+88        88 88    `8b 88     88 Y8.  .8P          88     88    88    88 88        88    88    88  88        88.    "' 
+88        88 88     88 88     88  Y8aa8P           88     88    88    88 88        88    88    88 a88aaaa    `Y88888b. 
+88        88 88     88 88     88 d8'  `8b 88888888 88     88    88    88 88        88    88    88  88              `8b 
+88        88 88     88 Y8.   .8P 88    88          Y8.   .8P    88    88 88        88    88    88  88        d8'   .8P 
+88888888P dP dP     dP `Y88888P' dP    dP          `Y88888P'    dP    dP 88888888P dP    dP    dP  88888888P  Y88888P  
 ```
 </div>
 🎨 Animated Terminal UI with real-time feedback
