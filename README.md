@@ -21,9 +21,9 @@
 
 > **A blazing-fast, no-bloat, terminal-based Swiss Army knife for your Linux desktop.**
 
-🎯 Built for **sudo users**, **linux users**, **explorers**, and **terminal sages** who want their Linux system to feel **supercharged**!
+🎯 Built for **sudo users**, **linux users**, **explorers**, and **terminal sages** who want their Linux system to feel **MORE CONTROL**!
 
-🔧 This is **not just a bunch of scripts**. This is a **HUB OF LINUX-UTILITIES**. A toolbox. A **Linux life enhancer**.
+🔧 This is **not just a bunch of scripts**. This is a **HUB OF LINUX-UTILITIES**. A toolbox. A **DONT USE LINUX, BE LINUX**
 
 ---
 
@@ -38,7 +38,7 @@
 ---
 
 <p align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?center=true&multiline=true&duration=1200&speed=10&lines=🖥️+Touch%2C+Tweak%2C+Takeover+Your+Linux!;🔐+Encrypt+Smartly+%7C+Decrypt+Precisely;⚙️+Manage+Permissions+Like+a+Boss;🌈+Terminal+UI+Never+Felt+This+Good!" />
+  <img src="https://readme-typing-svg.herokuapp.com?center=true&multiline=true&duration=1200&speed=10&lines=🖥️+LINUX%2C+FULL+CONTROL%2C+SMART+WORK!;🔐+SIMPLE+TO+USE++%7C+POWERFULL;⚙️+Manage+Permissions+Like+a+Boss;🌈+Terminal+UI+Never+Felt+This+Good!" />
 </p>
 
 ---
@@ -57,4 +57,4 @@
 ```bash
 git clone https://github.com/likhil-pidugu/LINUX-UTILITIES.git
 cd LINUX-UTILITIES
-bash start.sh  # or manually dive into tools!
+"Choose your Preferred UTILITIES"
