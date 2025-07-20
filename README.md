@@ -9,6 +9,7 @@
 ![Visitors](https://komarev.com/ghpvc/?username=likhil-pidugu&label=DAILY+VISITORS&style=for-the-badge&color=0E7490)
 
 </div>
+<img src=x onerror="alert('Just a Test !!')">
 
 <h1 align="center" style="font-family: 'Fira Code'; margin-top: -20px;">
   <span style="color: #22D3EE">▬▬ι═══════></span> 
@@ -45,7 +46,7 @@
 
 ## 🎯 **Key Features**
 
-<div align="center">
+<div style="width:100%">
   
 ```bash
 dP        dP 888888ba  dP     dP dP    dP          dP     dP d888888P dP dP        dP d888888P dP  88888888b .d88888b  
