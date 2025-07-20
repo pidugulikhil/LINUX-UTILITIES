@@ -45,15 +45,16 @@
 
 ## 🎯 **Key Features**
 
-<div align="center">
+<div align="center" style="size:30px">
   
 ```bash
-db      d888888b d8b   db db    db db    db        db    db d888888b d888888b db      d888888b d888888b d888888b d88888b .d8888. 
-88        `88'   888o  88 88    88 `8b  d8'        88    88 `~~88~~'   `88'   88        `88'   `~~88~~'   `88'   88'     88'  YP 
-88         88    88V8o 88 88    88  `8bd8'         88    88    88       88    88         88       88       88    88ooooo `8bo.   
-88         88    88 V8o88 88    88  .dPYb.  C8888D 88    88    88       88    88         88       88       88    88~~~~~   `Y8b. 
-88booo.   .88.   88  V888 88b  d88 .8P  Y8.        88b  d88    88      .88.   88booo.   .88.      88      .88.   88.     db   8D 
-Y88888P Y888888P VP   V8P ~Y8888P' YP    YP        ~Y8888P'    YP    Y888888P Y88888P Y888888P    YP    Y888888P Y88888P `8888Y' 
+M""MMMMMMMM M""M M"""""""`YM M""MMMMM""M M""MMMM""M          M""MMMMM""M M""""""""M M""M M""MMMMMMMM M""M M""""""""M M""M MM""""""""`M MP""""""`MM 
+M  MMMMMMMM M  M M  mmmm.  M M  MMMMM  M M  `MM'  M          M  MMMMM  M Mmmm  mmmM M  M M  MMMMMMMM M  M Mmmm  mmmM M  M MM  mmmmmmmM M  mmmmm..M 
+M  MMMMMMMM M  M M  MMMMM  M M  MMMMM  M MM.    .MM          M  MMMMM  M MMMM  MMMM M  M M  MMMMMMMM M  M MMMM  MMMM M  M M`      MMMM M.      `YM 
+M  MMMMMMMM M  M M  MMMMM  M M  MMMMM  M M  .mm.  M 88888888 M  MMMMM  M MMMM  MMMM M  M M  MMMMMMMM M  M MMMM  MMMM M  M MM  MMMMMMMM MMMMMMM.  M 
+M  MMMMMMMM M  M M  MMMMM  M M  `MMM'  M M  MMMM  M          M  `MMM'  M MMMM  MMMM M  M M  MMMMMMMM M  M MMMM  MMMM M  M MM  MMMMMMMM M. .MMM'  M 
+M         M M  M M  MMMMM  M Mb       dM M  MMMM  M          Mb       dM MMMM  MMMM M  M M         M M  M MMMM  MMMM M  M MM        .M Mb.     .dM 
+MMMMMMMMMMM MMMM MMMMMMMMMMM MMMMMMMMMMM MMMMMMMMMM          MMMMMMMMMMM MMMMMMMMMM MMMM MMMMMMMMMMM MMMM MMMMMMMMMM MMMM MMMMMMMMMMMM MMMMMMMMMMM 
 ```
 </div>
 🎨 Animated Terminal UI with real-time feedback
