@@ -57,4 +57,8 @@
 ```bash
 git clone https://github.com/likhil-pidugu/LINUX-UTILITIES.git
 cd LINUX-UTILITIES
+figlet -f smslant "CHOOSE UTILITY"
+echo
+echo
+ls
 ## "Choose your Preferred UTILITIES"
