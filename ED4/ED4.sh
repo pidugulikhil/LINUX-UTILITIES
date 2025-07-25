@@ -1,233 +1,343 @@
 #!/bin/bash
 
+RED='\033[0;31m'
+YELLOW='\033[1;33m'
+NC='\033[0m'
+CYAN='\033[1;36m'
+GREEN='\033[1;92m'
+UWHITE='\033[4;37m'
+BGCYAN='\033[46m' 
+UYELLOW='\033[4;33m' 
+
+LOG_FILE="encdec.log"
 META_DIR="./.enc_meta"
 mkdir -p "$META_DIR"
-LOG_FILE="encdec.log"
-# Colors
-RED='\033[0;31m'
-GREEN='\033[0;32m'
-YELLOW='\033[1;33m'
-CYAN='\033[0;36m'
-NC='\033[0m'
-echo -e "${RED}"
 
-# Spinner for long ops
-spinner() {
-  local pid=$1
-  local chars='|/-\'
-  while kill -0 $pid 2>/dev/null; do
-    for c in $chars; do
-      echo -ne "${CYAN}\r$c Processing...${NC}"
-      sleep 0.1
-    done
-  done
-  echo -e "\r${GREEN}✔ Done!            ${NC}"
-}
-
-perm_value() {
-  stat --format '%a' "$1" \
-    | awk '{ split($0,a,""); sum=0; for(i in a) sum+=a[i]; print sum }'
-}
-
-
-print_header() {
-  clear
-  figlet -c "ED4 Utility" | lolcat       # pip install lolcat for rainbow colors (optional)
-  echo -e "${CYAN} Four‑Layer Encryption / Decryption CLI Utility ${NC}"
-  echo
-}
-
-
-# Utility functions
+#################### LOGS
 log() {
     echo -e "[$(date +'%Y-%m-%d %H:%M:%S')] $1" >> "$LOG_FILE"
 }
-perm_value() {
-    stat --format '%a' "$1" | awk '{split($0,a,""); sum=0; for(i in a) sum+=a[i]; print sum}'
+
+###################### BANNER
+show_banner() {
+    clear
+    echo -e "${CYAN}                                                     ${RED}_____${NC}        "
+	echo -e "${CYAN}EEEEEEEEEEEEEEEEEEEE DDDDDDDDDDDDD        ${RED}          4:::::4"
+	echo -e "${CYAN}E::::::::::::::::::E D::::::::::::DD      ${RED}         4::::::4   "
+	echo -e "${CYAN}EE:::::EEEEEEEE::::E DDD:::DDDDD::::DD    ${RED}        4::44:::4   "
+	echo -e "${CYAN}  E::::E       EEEE    D::::D    D::::D   ${RED}      4:::4 4:::4   "
+	echo -e "${CYAN}  E::::E               D::::D     D::::D  ${RED}     4:::4  4:::4   "
+	echo -e "${CYAN}  E::::EEEEEEEEEE      D::::D     D::::D  ${RED}    4:::4   4:::4   "
+	echo -e "${CYAN}  E:::::::::::::E      D::::D     D::::D  ${RED}    4::::::::::::44 "
+	echo -e "${CYAN}  E::::EEEEEEEEEE      D::::D     D::::D  ${RED}    444444444::::44 "
+	echo -e "${CYAN}  E::::E               D::::D     D::::D  ${RED}            4:::4   "
+	echo -e "${CYAN}  E::::E       EEEE    D::::D    D::::D   ${RED}            4:::4   "
+	echo -e "${CYAN}EE:::::EEEEEEEE::::E DDD:::DDDDD::::DD    ${RED}            4:::4   "
+	echo -e "${CYAN}E::::::::::::::::::E D::::::::::::DD      ${RED}           44:::4 "
+	echo -e "${CYAN}EEEEEEEEEEEEEEEEEEEE DDDDDDDDDDDDD        ${RED}          4444444 "
+	echo -e "${NC}"
+	
+    #figlet -f smslant ED4
+    echo -e "${CYAN}====== ${BGCYAN}ED4${NC} ${CYAN}Universal File Encryption Utility${NC}${CYAN} ======${NC}"
+    echo -e "${YELLOW}            🔐 Created by ${UYELLOW}LIKHIL & CO${NC}"
 }
 
-rotate_string() {
-    str="$1"; rot=$2; len=${#str}
-    if (( len == 0 )); then
-        echo ""
-        return
-    fi
-    (( rot = rot % len ))
-    echo "${str: -$rot}${str:0:$((len - rot))}"
+####################################################################
+#FILE PERMISSIONS LOCATOR/ANALYSER
+# Calculates shift from file permission, e.g., 755 => 7+5+5 = 17
+#get_perm_shift() {
+#    local perm
+#    perm=$(stat -c '%a' "$1")
+#    echo $(( ${perm:0:1} + ${perm:1:1} + ${perm:2:1} ))
+#}
+get_perm_shift() {
+    local file="$1"
+    local perm
+    perm=$(stat -c "%a" "$file")
+    local sum=0
+    for ((i=0; i<${#perm}; i++)); do
+        sum=$((sum + ${perm:$i:1}))
+    done
+    echo "$sum"
 }
 
-# Level 1 - ASCII Shift
-level1_encrypt() {
-    shift=$1
-    log "Level 1 Encryption: ASCII Shift +$shift"
-    perl -CS -pe "s/(.)/chr((ord(\$1)+$shift)%256)/ge"
-}
-level1_decrypt() {
-    shift=$1
-    log "Level 1 Decryption: ASCII Shift -$shift"
-    perl -CS -pe "s/(.)/chr((ord(\$1)-$shift+256)%256)/ge"
+
+####################################################################
+# Layer 1 — Binary-safe ASCII shift using hex + xxd
+
+layer1_encrypt() {
+    local shift=$1
+    xxd -p -c 1 | \
+    awk -v s="$shift" '{ 
+        v = strtonum("0x" $0); 
+        v = (v + s) % 256; 
+        printf("%02x\n", v) 
+    }' | xxd -r -p
 }
 
-# Level 2 - Reverse + Rotate
-level2_encrypt() {
-    log "Level 2 Encryption: Reverse + Rotate"
-    rev | awk -v r=5 '{line=$0; len=length(line); r%=len; print substr(line,len-r+1) substr(line,1,len-r)}'
-}
-level2_decrypt() {
-    log "Level 2 Decryption: Reverse + Rotate"
-    awk -v r=5 '{line=$0; len=length(line); r%=len; print substr(line,r+1) substr(line,1,r)}' | rev
-}
-
-# Level 3 - ROT-like Cipher
-rot_custom_encrypt() {
-    log "Level 3 Encryption: Custom Cipher"
-    tr 'A-Za-z0-9' 'N-ZA-Mn-za-m5678901234'
-}
-rot_custom_decrypt() {
-    log "Level 3 Decryption: Custom Cipher"
-    tr 'N-ZA-Mn-za-m5678901234' 'A-Za-z0-9'
+layer1_decrypt() {
+    local shift=$1
+    xxd -p -c 1 | \
+    awk -v s="$shift" '{ 
+        v = strtonum("0x" $0); 
+        v = (v - s + 256) % 256; 
+        printf("%02x\n", v) 
+    }' | xxd -r -p
 }
 
-# Level 4 - Base64 + Shuffle
-level4_encrypt() {
-    log "Level 4 Encryption: Base64 + Shuffle"
-    base64 | tr -d '\n' | fold -w6 | tac | paste -sd ''
-}
-level4_decrypt() {
-    log "Level 4 Decryption: Base64 + Shuffle"
-    fold -w6 | tac | paste -sd '' | base64 -d 2>/dev/null
+####################################################################
+# 2nd LAYER ALGORITHM REVERSE+ROTATE
+layer2_encrypt() {
+    xxd -p | tr -d '\n' | rev | xxd -r -p
 }
 
-# Encrypt file
+layer2_decrypt() {
+    xxd -p | tr -d '\n' | rev | xxd -r -p
+}
+
+
+####################################################################
+# NXR4 Algorithm: Byte-wise nibble swap (low 4 bits <-> high 4 bits)
+# This awk-based pipeline processes hex bytes as a stream to reduce CPU/memory usage
+
+encrypt3_layer() {
+    infile="$1"
+    outfile="$2"
+
+    xxd -p "$infile" | tr -d '\n' | fold -w2 | awk '
+    /^[0-9a-fA-F]{2}$/ {
+        byte = strtonum("0x" $0)
+        high = and(rshift(byte, 4), 0x0F)
+        low = and(byte, 0x0F)
+        swapped = or(lshift(low, 4), high)
+        printf "%02x", swapped
+    }' | xxd -r -p > "$outfile"
+}
+
+decrypt3_layer() {
+    encrypt3_layer "$@"
+}
+
+####################################################################
+# ==========================
+# 4th LAYER BASE64 + SHIFT4
+# ==========================
+encrypt4_layer() {
+    infile="$1"
+    outfile="$2"
+
+    base64 "$infile" | tr -d '\n' > /tmp/l4_base64.tmp
+
+    content=$(< /tmp/l4_base64.tmp)
+    total_len=${#content}
+    block_len=$(( (total_len + 3) / 4 ))
+
+    b1="${content:0:block_len}"
+    b2="${content:block_len:block_len}"
+    b3="${content:block_len*2:block_len}"
+    b4="${content:block_len*3}"
+
+    rotated="${b4}${b3}${b2}${b1}"
+    echo -n "$rotated" > "$outfile"
+
+    rm -f /tmp/l4_base64.tmp
+}
+
+decrypt4_layer() {
+    infile="$1"
+    outfile="$2"
+
+    content=$(< "$infile")
+    total_len=${#content}
+    block_len=$(( (total_len + 3) / 4 ))
+
+    b4="${content:0:block_len}"
+    b3="${content:block_len:block_len}"
+    b2="${content:block_len*2:block_len}"
+    b1="${content:block_len*3}"
+
+    original="${b1}${b2}${b3}${b4}"
+
+    echo -n "$original" | base64 -d > "$outfile"
+}
+
+
+####################################################################
+#ENCRYPT/DECRYPT FILES
 encrypt_file() {
     clear
-    echo -e "${CYAN}========== ENCRYPTION STARTED ==========${NC}"
-    file="$1"
+    trap 'rm -f "$file.enc.tmp"*; echo -e "\n${RED}Operation interrupted.${NC}"; exit 1' INT
+
+    echo -e "${CYAN}========== ENCRYPTION STARTED ==========${GREEN}"
+    read -p "Enter file path to encrypt: " file
     [[ ! -f "$file" ]] && echo -e "${RED}File not found!${NC}" && return
 
-    perm_sum=$(perm_value "$file")
+    # 1) Compute and sanitize shift
+    shift=$(get_perm_shift "$file" | tr -d '[:space:]')
+    if ! [[ "$shift" =~ ^[0-9]+$ ]] || (( shift < 0 || shift > 255 )); then
+        echo -e "${RED}Invalid shift value: '$shift'${NC}"
+        return
+    fi
+	
+    # 2) Run layers 1 → 2 → 3 → 4 into temp files
+    < "$file" layer1_encrypt "$shift"    > "$file.enc.tmp1"
+	log "FP-ASCII SHIFT ✅"
+	echo 
+	echo -e "${CYAN}FP-ASCII SHIFT  ✅${NC}"
+	sleep 0.1
+    layer2_encrypt   < "$file.enc.tmp1"  > "$file.enc.tmp2"
+	log "REVERSE+ROTATE ✅"
+	echo -e "${CYAN}REVERSE+ROTATE  ✅${NC}"
+	sleep 0.1
+    encrypt3_layer   "$file.enc.tmp2"    "$file.enc.tmp3"
+	log "NXR4 ✅"
+	echo -e "${CYAN}NXR4            ✅${NC}"
+	sleep 0.1
+    encrypt4_layer   "$file.enc.tmp3"    "$file.enc.tmp4"
+	log "BASE64+SHIFTING ✅"
+	echo -e "${CYAN}BASE64+SHIFTING ✅${NC}"
+	echo
+	sleep 0.1
+	
+    # 3) Build final .enc = [1‑byte header] + [payload]
+    hexshift=$(printf '%02x' "$shift")                          # e.g. "11"
+    echo -ne "\x${hexshift}" > "$file.enc"                      # raw binary header
+    cat "$file.enc.tmp4"      >> "$file.enc"                    # append payload
 
-    echo -e "${YELLOW}Using the following encryption layers:${NC}"
-    echo -e "${GREEN}  ➤ Layer 1: ASCII Shift based on file permissions (${perm_sum})"
-    echo -e "  ➤ Layer 2: Reverse string + character rotation"
-    echo -e "  ➤ Layer 3: Custom ROT Cipher"
-    echo -e "  ➤ Layer 4: Base64 + block shuffle${NC}"
-    echo
+    # 4) Cleanup temps
+    rm -f "$file.enc.tmp1" "$file.enc.tmp2" "$file.enc.tmp3" "$file.enc.tmp4"
 
-    < "$file" \
-        level1_encrypt "$perm_sum" |  \
-        level2_encrypt | \
-        rot_custom_encrypt | \
-        level4_encrypt \
-        > "$file.enc"
-
-    echo "$perm_sum" > "$META_DIR/$(basename "$file").meta"
-    log "Encrypted $file to $file.enc with permission sum $perm_sum"
-
-    echo -e "${GREEN}Encryption complete: $file.enc${NC}"
+    echo -e "${GREEN}Encrypted: $file.enc${NC}"
+    log "===========================Encrypted $file (shift=$shift)==========================="
     echo -e "${CYAN}========================================${NC}"
 }
 
-# Decrypt file
+
 decrypt_file() {
     clear
-    echo -e "${CYAN}========== DECRYPTION STARTED ==========${NC}"
-    file="$1"
-    base=$(basename "$file" .enc)
-    meta="$META_DIR/$base.meta"
+    trap 'rm -f "$file.enc.tmp"*; echo -e "\n${RED}Operation interrupted.${NC}"; exit 1' INT
 
-    [[ ! -f "$file" || ! -f "$meta" ]] && echo -e "${RED}File or metadata missing!${NC}" && return
+    echo -e "${CYAN}========== DECRYPTION STARTED ==========${GREEN}"
+    read -p "Enter .enc file to decrypt: " file
+    [[ ! -f "$file" ]] && echo -e "${RED}File not found!${NC}" && return
+    base=${file%.enc}
 
-    perm_sum=$(<"$meta")
+    # 1) Read the 1‑byte header → shift
+    shift=$(dd if="$file" bs=1 count=1 2>/dev/null \
+            | od -An -t u1 \
+            | tr -d '[:space:]')
 
-    echo -e "${YELLOW}Applying decryption layers in reverse:${NC}"
-    echo -e "${GREEN}  ➤ Layer 4: Block shuffle reversal + Base64 decode"
-    echo -e "  ➤ Layer 3: Custom ROT Cipher reverse"
-    echo -e "  ➤ Layer 2: Reverse rotation + string reverse"
-    echo -e "  ➤ Layer 1: ASCII Shift reverse using permission sum (${perm_sum})${NC}"
-    echo
+    # 2) Peel off the rest of the file into tmp
+    dd if="$file" bs=1 skip=1 of="$file.enc.tmp1" 2>/dev/null
 
-    < "$file" \
-        level4_decrypt | \
-        rot_custom_decrypt | \
-        level2_decrypt | \
-        level1_decrypt "$perm_sum" \
-        > "$base.dec"
-
-    log "Decrypted $file to $base.dec using permission sum $perm_sum"
-
-    echo -e "${GREEN}Decryption complete: $base.dec${NC}"
-    echo -e "${CYAN}==========================================${NC}"
-}
-
-# View file contents safely
-view_file() {
-    clear
-    echo -e "${CYAN}========== VIEW FILE CONTENT ==========${NC}"
-    read -p "Enter the path of the file to view: " file
-    if [[ -f "$file" ]]; then
-        echo -e "${YELLOW}--- Begin of $file ---${NC}"
-        cat "$file"
-        echo -e "${YELLOW}--- End of $file ---${NC}"
-    else
-        echo -e "${RED}File not found.${NC}"
-    fi
-    echo -e "${CYAN}=======================================${NC}"
-    read -p "Press ENTER to return to menu..."
-}
-
-# Show logs
-view_logs() {
-    clear
-    echo -e "${CYAN}========== ACTIVITY LOG ==========${NC}"
-    cat "$LOG_FILE" 2>/dev/null || echo "No logs yet."
-    echo -e "${CYAN}==================================${NC}"
-    read -p "Press ENTER to return to menu..."
-}
-
-# Main menu
-main_menu() {
-    clear
-    # Big banner
-    figlet -f slant ED4
-    echo -e "${NC}"
-    echo
-    # Framed title
-    echo -e "${CYAN}╔══════════════════════════════════════════════════╗${NC}"
-    echo -e "${CYAN}║${YELLOW}   Files Encryption & Decryption Utility CLI      ${CYAN}║${NC}"
-    echo -e "${CYAN}║${MAGENTA}            ✨ MADE BY LIKHIL & CO ✨             ${CYAN}║${NC}"
-    echo -e "${CYAN}╠══════════════════════════════════════════════════╣${NC}"
-    echo 
-    echo
-    # Menu options
-    echo -e "${GREEN}  [1]${NC} 🔒 Encrypt File"
-    echo -e "${GREEN}  [2]${NC} 🔒 Decrypt File"
-    echo -e "${GREEN}  [3]${NC} 📜 View Logs"
-    echo -e "${GREEN}  [4]${NC} 📂 View a File"
-    echo -e "${RED}  [5]${NC} ❌ Exit"
-    echo 
-    echo -e "${CYAN}╚══════════════════════════════════════════════════╝${NC}"
+    # 3) Run Layers 4 → 3 → 2 + 1
+    decrypt4_layer "$file.enc.tmp1" "$file.enc.tmp2"  || return
+	log "BASE64+SHIFTING ✅"
 	echo
-    read -p "👉 Select an option [1-5]: " choice
+	echo -e "${CYAN}BASE64+SHIFTING ✅${NC}"
+	sleep 0.1
+    decrypt3_layer "$file.enc.tmp2" "$file.enc.tmp3"  || return
+    log "NXR4 ✅"
+    echo -e "${CYAN}NXR4            ✅${NC}"
+	sleep 0.1
+    < "$file.enc.tmp3" layer2_decrypt \
+        | layer1_decrypt "$shift" > "$base.dec"  || return
+    log "REVERSE+ROTATE ✅"
+    echo -e "${CYAN}REVERSE+ROTATE  ✅${NC}"
+	sleep 0.1
+    log "PF BASED SHIFT ✅"
+    echo -e "${CYAN}PF BASED SHIFT  ✅${NC}"
+	echo
+	sleep 0.1 
+    # 4) Clean up temps
+    rm -f "$file.enc.tmp1" "$file.enc.tmp2" "$file.enc.tmp3"
 
-    case $choice in
-        1)
-            read -p "Enter file path to encrypt: " path
-            encrypt_file "$path"
-            read -p "Press ENTER to continue..."; main_menu;;
-        2)
-            read -p "Enter .enc file to decrypt: " path
-            decrypt_file "$path"
-            read -p "Press ENTER to continue..."; main_menu;;
-        3)
-            view_logs; main_menu;;
-        4)
-            view_file; main_menu;;
-        5)
-            echo "Goodbye!"; exit 0;;
-        *)
-            echo -e "${RED}Invalid choice.${NC}"; sleep 1; main_menu;;
+    echo -e "${GREEN}Decrypted: $base.dec${NC}"
+    log "===========================Decrypted $file (shift=$shift)==========================="
+    echo -e "${CYAN}========================================${NC}"
+}
+
+
+
+
+####################################################################
+#Main Menu
+main_menu() {
+    show_banner
+    echo 
+    echo -e "${GREEN}1. 🔐 ENCRYPT FILE${NC}"
+    echo -e "${GREEN}2. 🔑 DECRYPT FILE${NC}"
+    echo -e "${GREEN}3. 📄 VIEW FILE${NC}"
+    echo -e "${GREEN}4. 🔍 VIEW LOGS${NC}"
+    echo -e "${RED}5. ❌ EXIT${NC}"
+    echo
+    echo -e "${YELLOW}Choose Option [1-4]"
+    read -p " 👉 " opt
+
+    case $opt in
+        1) encrypt_file;;
+        2) decrypt_file;;
+		3) 
+			read -p "Enter file path to view : " view_path
+			ext="${view_path##*.}"
+
+			if [[ ! -f "$view_path" ]]; then
+			    echo -e "${RED}❌ File not found: $view_path${NC}"
+			else
+			    case "$ext" in
+			        txt|enc|dec|log|md|json|sh)
+			            echo -e "${CYAN}📄 Text-based file detected (.$ext). Showing content:${NC}"
+			            echo -e "${GREEN}-------------------------------------${NC}"
+			            cat "$view_path"
+			            echo
+			            echo -e "${GREEN}-------------------------------------${NC}"
+			            ;;
+			        pdf|html|htm|xml)
+			            echo -e "${YELLOW}🌐 Opening .$ext file in Firefox...${NC}"
+			            if command -v firefox >/dev/null; then
+			                firefox "file://$(realpath "$view_path")" &>/dev/null &
+			            else
+			                echo -e "${RED}❌ Firefox not found!${NC}"
+			            fi
+			            ;;
+			        *)
+			            echo -e "${YELLOW}🔍 Unknown extension (.$ext). Attempting to open with system viewer...${NC}"
+			            if command -v xdg-open >/dev/null; then
+			                xdg-open "$view_path" &>/dev/null &
+			            elif command -v firefox >/dev/null; then
+			                firefox "file://$(realpath "$view_path")" &>/dev/null &
+			            elif command -v chromium >/dev/null; then
+			                chromium "$view_path" &>/dev/null &
+			            else
+			                echo -e "${RED}❌ No viewer available (xdg-open/firefox/chromium not found).${NC}"
+			            fi
+			            ;;
+			    esac
+			fi
+			;;
+		4)
+		    if [[ ! -f "$LOG_FILE" ]]; then
+		        mkdir -p "$META_DIR"
+		        touch "$LOG_FILE"
+		        echo -e "${YELLOW}Log file not found. Creating new log...${NC}"
+		    fi
+		    echo -e "${CYAN}========== LOGS ==========${YELLOW}"
+		    cat "$LOG_FILE"
+		    echo -e "${CYAN}==========================${NC}"
+		    ;;
+        5) read -p "Confirm [y/n] : " confirm
+       		if [[ $confirm == "y" || $confirm == "Y" || $confirm == "s" || $confirm == 1 || $confirm == "" ]]; then
+		        echo -e "${RED}Goodbye${GREEN}!";
+				echo " "
+       			exit 0;
+       		else
+       			main_menu
+       		fi
+       		;;
+       *) echo -e "${RED}Invalid option!${NC}";;
     esac
+	echo -e "${YELLOW}"
+    read -p "Press Enter to return..." && main_menu
 }
 
 main_menu
