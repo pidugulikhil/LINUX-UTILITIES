@@ -1,8 +1,3 @@
-Here is a **modern, animated, and graph-enhanced** `README.md` file for your `ED4 – Universal File Encryption Utility`. It is designed to impress developers with visuals, live badges, and structured content — just like a modern open-source project landing page.
-
----
-
-````markdown
 <p align="center">
   <img src="https://readme-typing-svg.herokuapp.com?font=JetBrains+Mono&size=28&color=34ebd8&center=true&vCenter=true&width=900&height=100&lines=🔐+ED4+–+Universal+File+Encryption+Utility;Layered+Bash+Encryption+Made+Powerful;Secure+Anything:+Text,+PDF,+HTML,+etc."/>
 </p>
@@ -120,12 +115,10 @@ Enter .enc file to decrypt: secret.pdf.enc
 
 ## 📁 Project Structure
 
-```
 .
 ├── ed4.sh              # Main encryption/decryption script
 ├── encdec.log          # Log file (auto-generated)
 └── .enc_meta/          # (Reserved for future metadata)
-```
 
 ---
 
