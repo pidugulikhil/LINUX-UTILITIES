@@ -1,119 +1,177 @@
-🔐 ED4 – Universal File Encryption Utility
-ED4 is a layered, terminal-based encryption/decryption tool written entirely in Bash. It uses a unique, multi-layered encoding algorithm driven by file permission entropy and offers smooth handling of encrypted files across formats, including text, HTML, PDFs, and more.
+Here is a **modern, animated, and graph-enhanced** `README.md` file for your `ED4 – Universal File Encryption Utility`. It is designed to impress developers with visuals, live badges, and structured content — just like a modern open-source project landing page.
 
+---
 
+````markdown
+<p align="center">
+  <img src="https://readme-typing-svg.herokuapp.com?font=JetBrains+Mono&size=28&color=34ebd8&center=true&vCenter=true&width=900&height=100&lines=🔐+ED4+–+Universal+File+Encryption+Utility;Layered+Bash+Encryption+Made+Powerful;Secure+Anything:+Text,+PDF,+HTML,+etc."/>
+</p>
 
+<p align="center">
+  <img src="https://img.shields.io/badge/Bash-100%25-green?style=flat-square&logo=gnu-bash" />
+  <img src="https://img.shields.io/github/license/likhil-pidugu/ED4?style=flat-square" />
+  <img src="https://img.shields.io/github/stars/likhil-pidugu/ED4?style=flat-square" />
+  <img src="https://img.shields.io/github/last-commit/likhil-pidugu/ED4?style=flat-square" />
+</p>
 
-✨ Features
-🔐 Four-Layer Encryption Stack
+---
 
-Layer 1: ASCII Byte Shift (based on file permission sum)
+## 🔥 Overview
 
-Layer 2: Reverse + Rotate Hex Streams
+**ED4** is a powerful, **multi-layered encryption/decryption utility** written entirely in Bash. It provides a stack of custom-built encryption algorithms based on file permission entropy and delivers universal file protection — from `.txt` and `.sh` to `.pdf` and `.html`.
 
-Layer 3: NXR4 Nibble Swap Algorithm
+No external libraries. No magic. Just pure Bash. 🧠
 
-Layer 4: Base64 Encoding + Custom Block Shifting
+---
 
-🔑 Secure Decryption with embedded key header
+## ✨ Features
 
-📄 Smart File Viewer (terminal for .txt, .sh, .enc, browser for .pdf, .html)
+| Feature                                 | Description |
+|----------------------------------------|-------------|
+| 🔐 **Four-Layer Encryption Stack**     | Custom encryption pipeline |
+| 🧠 **Permission-Based Keying**         | Uses file's chmod entropy |
+| 📝 **Smart Logs**                      | Action logs with timestamps |
+| 📄 **Smart File Viewer**               | Detects and opens text or browser-based files |
+| 💻 **Zero Dependency**                 | Pure Bash + xxd + awk |
+| 📦 **Compact Output**                  | Encrypted output in `.enc`, decrypted in `.dec` |
 
-🧠 Permission-Based Encryption Keying
+---
 
-📝 Action Logging (encdec.log)
+## 🔗 Encryption Stack
 
-💻 Pure Bash – No dependencies apart from core Linux tools
+| Layer | Name                      | Description |
+|-------|---------------------------|-------------|
+| 1️⃣    | ASCII Byte Shift          | Uses chmod sum for byte rotation |
+| 2️⃣    | Reverse + Rotate          | In-place hex manipulation |
+| 3️⃣    | **NXR4** Nibble Swapping  | Custom algorithm swaps nibbles |
+| 4️⃣    | Base64 + Block Rotation   | Final encoding & reordering |
 
-🚀 Installation
-bash
-Copy
-Edit
-git clone https://github.com/yourusername/ed4-encryption.git
-cd ed4-encryption
+> 🧪 Example: chmod `755 file` → shift = `7+5+5 = 17`
+
+---
+
+## 🚀 Installation
+
+```bash
+git clone https://github.com/likhil-pidugu/ED4.git
+cd ED4
 chmod +x ed4.sh
 ./ed4.sh
-✅ Works on most Unix-like systems with bash, xxd, awk, base64, and firefox or xdg-open.
+````
 
-📦 Usage
-Once you run the script, you’ll see:
+✅ Requires:
 
-markdown
-Copy
-Edit
+* `bash`
+* `xxd`
+* `awk`
+* `base64`
+* `xdg-open` or `firefox` or `chromium`
+
+---
+
+## 📦 Usage Menu
+
+```text
 1. 🔐 ENCRYPT FILE
 2. 🔑 DECRYPT FILE
 3. 📄 VIEW FILE
 4. 🔍 VIEW LOGS
 5. ❌ EXIT
-🔐 Encrypt a File
-Accepts any file type.
+```
 
-Calculates a unique shift from file permissions (e.g., chmod 755 myfile → 7+5+5 = 17).
+### 🔐 Encrypt a File
 
-Applies 4 transformation layers and outputs a .enc file.
+* Input any file (`.txt`, `.pdf`, `.html`, etc.)
+* Applies 4 encryption layers.
+* Outputs a `.enc` file.
 
-🔑 Decrypt a File
-Reads the embedded header to restore the original file accurately.
+### 🔑 Decrypt a File
 
-Outputs a .dec version of the original file.
+* Reads embedded metadata.
+* Reverses all layers.
+* Outputs `.dec` file.
 
-📄 View File
-Smart detection based on file extension:
+### 📄 View File
 
-Text files shown in-terminal.
+* `.txt`, `.enc`, `.sh`: shown in terminal
+* `.pdf`, `.html`, others: opened in browser or viewer
 
-PDFs/HTML opened in browser.
+### 🔍 View Logs
 
-Others handled via xdg-open.
+* Shows `encdec.log` (auto-created if missing)
+* Each action is timestamped
 
-🔍 View Logs
-View a full activity log (encdec.log) with timestamps and step records.
+---
 
-🔐 Encryption Stack Details
-Layer	Description	Method
-1	ASCII Byte Shift	Binary-safe, xxd+awk based, uses chmod-derived shift
-2	Reverse+Rotate	Hex reversed in-place, then piped back
-3	NXR4 Algorithm	Bytewise nibble swapping (high ↔ low bits) via awk
-4	Base64 + 4-block rotation	Encoded string sliced, reordered, and rejoined
+## 🧪 Live Demo
 
-🧪 Example
-bash
-Copy
-Edit
+```bash
 $ ./ed4.sh
-# Choose option 1
+🔐 Choose option 1
 Enter file path to encrypt: secret.pdf
-Encrypted: secret.pdf.enc ✅
+✅ Encrypted: secret.pdf.enc
 
-# Then decrypt later
-Choose option 2
+🔑 Choose option 2
 Enter .enc file to decrypt: secret.pdf.enc
-Decrypted: secret.pdf.dec ✅
-📁 Project Structure
-bash
-Copy
-Edit
+✅ Decrypted: secret.pdf.dec
+```
+
+---
+
+## 📁 Project Structure
+
+```
 .
-├── ed4.sh              # Main script
+├── ed4.sh              # Main encryption/decryption script
 ├── encdec.log          # Log file (auto-generated)
-└── .enc_meta/          # (Unused placeholder directory)
-⚠️ Requirements
-bash
+└── .enc_meta/          # (Reserved for future metadata)
+```
 
-xxd
+---
 
-awk
+## 📊 Real-Time Stats (Optional)
 
-base64
+<!-- You can embed real-time GitHub stats if hosted -->
 
-firefox or xdg-open or chromium
+![Visitors](https://komarev.com/ghpvc/?username=likhil-pidugu\&label=Profile+Views)
+![Lines of Code](https://img.shields.io/tokei/lines/github/likhil-pidugu/ED4)
+![Languages](https://img.shields.io/github/languages/top/likhil-pidugu/ED4)
 
-📜 License
-MIT License. Feel free to fork, contribute, and improve.
+---
 
-🙌 Credits
-Developed by LIKHIL & CO
+## 🧠 Philosophy
 
-Banner art and encryption logic crafted with ❤️ in the terminal.
+> *"Encrypt not just bytes, but behaviors. ED4 evolves based on permissions, so every file is uniquely protected."*
+> — **LIKHIL & CO**
 
+---
+
+## 📜 License
+
+Licensed under the [MIT License](LICENSE).
+Feel free to fork, improve, and contribute to ED4.
+
+---
+
+## 🙌 Credits
+
+* Developed with ❤️ by **LIKHIL & CO**
+* Banner art: [readme-typing-svg](https://github.com/DenverCoder1/readme-typing-svg)
+* Inspired by the power of the GNU/Linux terminal.
+
+---
+
+> 🌐 [View Project Repository](https://github.com/likhil-pidugu/ED4)
+
+```
+
+---
+
+### ✅ Next Steps
+- Save the above as `README.md`
+- Replace `yourusername` with your GitHub username in clone links if needed
+- Ensure `LICENSE` file is present (MIT) to avoid badge warnings
+- Push your changes to GitHub
+
+Would you like me to generate an HTML preview too or link up `gh-pages` for live README with animations and effects?
+```
