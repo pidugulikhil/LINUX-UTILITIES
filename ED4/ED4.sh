@@ -285,14 +285,14 @@ main_menu() {
 			    echo -e "${RED}❌ File not found: $view_path${NC}"
 			else
 			    case "$ext" in
-			        txt|enc|dec|log|md|json|sh)
+			        txt|enc|txt*dec|log|md|json|sh)
 			            echo -e "${CYAN}📄 Text-based file detected (.$ext). Showing content:${NC}"
 			            echo -e "${GREEN}-------------------------------------${NC}"
 			            cat "$view_path"
 			            echo
 			            echo -e "${GREEN}-------------------------------------${NC}"
 			            ;;
-			        pdf|html|htm|xml)
+			        pdf|htmlpdf*dec|htm|xml)
 			            echo -e "${YELLOW}🌐 Opening .$ext file in Firefox...${NC}"
 			            if command -v firefox >/dev/null; then
 			                firefox "file://$(realpath "$view_path")" &>/dev/null &
