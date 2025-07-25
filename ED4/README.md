@@ -2,13 +2,6 @@
   <img src="https://readme-typing-svg.herokuapp.com?font=JetBrains+Mono&size=28&color=34ebd8&center=true&vCenter=true&width=900&height=100&lines=🔐+ED4+–+Universal+File+Encryption+Utility;Layered+Bash+Encryption+Made+Powerful;Secure+Anything:+Text,+PDF,+HTML,+etc."/>
 </p>
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Bash-100%25-green?style=flat-square&logo=gnu-bash" />
-  <img src="https://img.shields.io/github/license/likhil-pidugu/ED4?style=flat-square" />
-  <img src="https://img.shields.io/github/stars/likhil-pidugu/ED4?style=flat-square" />
-  <img src="https://img.shields.io/github/last-commit/likhil-pidugu/ED4?style=flat-square" />
-</p>
-
 ---
 
 ## 🔥 Overview
