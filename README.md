@@ -4,9 +4,9 @@
 
 <div align="center">
   
-![GitHub Stars](https://img.shields.io/github/stars/likhil-pidugu/LINUX-UTILITIES?style=for-the-badge&logo=github&color=7E3ACE)
-![GitHub Forks](https://img.shields.io/github/forks/likhil-pidugu/LINUX-UTILITIES?style=for-the-badge&logo=github&color=7E3ACE)
-![Visitors](https://komarev.com/ghpvc/?username=likhil-pidugu&label=DAILY+VISITORS&style=for-the-badge&color=0E7490)
+![GitHub Stars](https://img.shields.io/github/stars/pidugulikhil/LINUX-UTILITIES?style=for-the-badge&logo=github&color=7E3ACE)
+![GitHub Forks](https://img.shields.io/github/forks/pidugulikhil/LINUX-UTILITIES?style=for-the-badge&logo=github&color=7E3ACE)
+![Visitors](https://komarev.com/ghpvc/?username=pidugulikhil&label=DAILY+VISITORS&style=for-the-badge&color=0E7490)
 
 </div>
 <img src=x onerror="alert('Just a Test !!')">
@@ -22,7 +22,7 @@
 </p>
 
 <div align="center">
-  <img src="https://github.com/likhil-pidugu/LINUX-UTILITIES/assets/your-profile-id/demo-gif" alt="Terminal Demo" width="700" />
+  <img src="https://github.com/pidugulikhil/LINUX-UTILITIES/assets/your-profile-id/demo-gif" alt="Terminal Demo" width="700" />
 </div>
 
 ---
@@ -72,10 +72,10 @@ dP        dP 888888ba  dP     dP dP    dP          dP     dP d888888P dP dP     
 🚀 Installation & Usage
 bash
 # Clone with style
-git clone https://github.com/likhil-pidugu/LINUX-UTILITIES.git --depth=1 && \
+git clone https://github.com/pidugulikhil/LINUX-UTILITIES.git --depth=1 && \
 cd LINUX-UTILITIES && \
 ./install.sh --with-animations --enable-power-mode
-<div align="center"> <img src="https://github.com/likhil-pidugu/LINUX-UTILITIES/assets/your-profile-id/install-demo.gif" width="600" /> </div>
+<div align="center"> <img src="https://github.com/pidugulikhil/LINUX-UTILITIES/assets/your-profile-id/install-demo.gif" width="600" /> </div>
 📊 Real User Data
 text
 █████████████████████████████
@@ -95,7 +95,7 @@ Network	5 Tools	🌐🌐🌐
 Dev	6 Tools	👨‍💻👨‍💻👨‍💻👨‍💻
 </div>
 🌈 Community Impact
-https://api.star-history.com/svg?repos=likhil-pidugu/LINUX-UTILITIES&type=Date
+https://api.star-history.com/svg?repos=pidugulikhil/LINUX-UTILITIES&type=Date
 
 🧑‍💻 Contribution
 We love contributions! Here's our contributor activity:
@@ -104,7 +104,7 @@ bash
 # Show contributor stats
 git shortlog -sn --all --no-merges
 <div align="center">
-https://contrib.rocks/image?repo=likhil-pidugu/LINUX-UTILITIES
+https://contrib.rocks/image?repo=pidugulikhil/LINUX-UTILITIES
 
 </div>
 <div align="center">
